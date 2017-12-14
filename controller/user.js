@@ -17,8 +17,8 @@ class UserController{
     static createUser(req,res){
         
         let user = new User({
-            username : result.name, 
-            email    : result.email
+            username : req.body.name,
+            email: req.body.email
         });
         user.save()
         .then(userBaru=>{
@@ -39,7 +39,7 @@ class UserController{
         .then(data => {
             res.status(200).send({
                 msg  : "succes remove",
-                data : data 
+                data : data
             })
         })
         .catch(err => {
@@ -61,13 +61,13 @@ class UserController{
             res.status(500).send({
                 msg : err
             })
-        }) 
+        })
     }
 
     static update (req,res){
         Book.findOne({_id : ObjectID(req.params.id)})
         .then(data => {
-                data.username = req.body.username || data.username    
+                data.username = req.body.username || data.username
             data.save()
             .then(dataUpdate => {
                 res.status(200).send({
