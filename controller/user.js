@@ -94,8 +94,6 @@ class UserController{
                     category : r.categoryPath
                 })
             })
-            // r.name, r.salePrice, r.categoryPath
-
 
 
           res.status(200).send({
