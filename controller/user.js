@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const ObjectID = require('mongodb').ObjectID;
+const axios = require('axios')
 
 class UserController{
 
@@ -82,14 +83,30 @@ class UserController{
         })
     }
     
-
     static search(req,res){
-        
-        // `http://api.walmartlabs.com/v1/search?query=playstation4&format=json&apiKey=63hzn8trymendbtajfa9dx98`
-    
-    }
+        axios.get('http://api.walmartlabs.com/v1/search?query=ipod&format=json&apiKey=63hzn8trymendbtajfa9dx98')
+        .then(function (response) {
+            let array = [];
+            response.data.items.forEach(r => {
+                array.push({
+                    name : r.name,
+                    price : r.salePrice,
+                    category : r.categoryPath
+                })
+            })
+            // r.name, r.salePrice, r.categoryPath
 
-    
+
+
+          res.status(200).send({
+              msg: "succes",
+              data : array
+          })
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
 }
     
 module.exports = UserController
