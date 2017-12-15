@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "hacktiv8-image-recog",
+  "private_key_id": "bfa5f6d3f238fb45939bdb78bef38b15a790fe2e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC75GMuNf8YAaCL\nV5Wr51gFwhYe58SpbHOe2755jYXSdeN3OQFHrjSchnsMeLuS9bDXplE8b/4c+xcz\nxW63OMFpiSVn+zUPn11VvC1g6fDvBA40iLM2xdWC+NRCRPXs62nYWNeT+lH0R3rt\npLudi2MrQFbN8rKO584LY4vNCwXiqixLJ+ATp5U+TlLk0NVZ/yo/EoiCh/wUBA+s\ndb/lliVBjmmECWiRhw79bt9cjrhyzQ4+RIIXKW8adUnCcWip2EVW+gmn48ikHMgh\nc6u9aowQljI5OTk9d+0WLR+ZKvYNrwc1JrluOZHzOVCoyBLhpJwX/tJF89qiQDEn\nRaLiQtSfAgMBAAECggEAA424wH198x7Iwgnoh0VLWWSH1ZLNmeS2tRjz28ms78OS\nB0W5O/lT/mfeuOgpqAhkjVeUbr+xfyvSjwSbaPS2V8AjyHksUjzR35a9Bvm1uFeL\nyzuQpCcOuDjrjstOGWqEaHaZsS9JUITvksIMWFj0CbPgUGnYLbK9p2J9GOYt+ND1\nzgFsH4avtFhXaosKUYmyNVps+ndpdEWXKVBLl3gw42MU4r4XudGDNwwclAR6QcmP\ntS2NzmNmbU8heCbbxjgiv4yrGcViNUJBsb+9XxdhooONNMsA8ag3mGnBnct478vK\neMBSO0iN+yISx77sBBXWIMg/5sFiAR7tSioR++t8XQKBgQDtdMwfgmBYA1IyHuyG\n3mWNqKwHBb2tQWh3yGVR8hrbll4DxVfrZpEoXO00+SLsm/RipWX1kmjiJ059oDlR\nwuFe5UnJyKmqtmQZMvwtfOaJDCyTI4FGEsH5y2UqV2yYPLTStPl8zao34vDbcFUt\niFQW2Dp3FNVOJpV4dUvk8sQlRQKBgQDKkLWRfPlT8Vh/mKtvTkM6rgVdrQnv4cdk\ne8Xj0+04nQwyj4Eqkn0SMYehEU/bey6xbxhhxxxKTJG5lydFqpJTCw7PvG3btGpQ\nIX6YACC5nZ97SHuXve/UzSKe6ieMVaEHrIVuRvfNyaMKlSQm7BaLHF8dvygZVtCJ\nLGBb78+WkwKBgAZeobMerjLuM+BAUBv2D0dThPnTP5lMLd84su8VzX6ic/cp7gfU\ngoRQqdRH8pXiQRX8VdXWjZWzdDmOeLsmvSDsiaQuC88WgWzjnzwhI5X9i5yO0ULt\n8eIfgKE4IyOaTUdxr1eXtL83CTr5sm88PvU166uSFX65Lj1C+Dw1/uj5AoGBAJi6\ndPvGE6MT9Fr4PEIG6y+iJ8+SeUyRmioMHI+DqXenCZxRkN0NaBnAmHd7uw9MGE+V\n6PdIDe+DPdiFvAmN6xeL3dYJR3eA1yulpXJrnkD1NFrasr0da2eyZ2kUOU9Y/Lnx\nfQVBovNZFYIUIxbpqLGoaZrfFxfL2h2jBOAstwLbAoGBANh0FPu5CPa5oGLZz/e3\nL5kj5+7smTT73qwlSzvYdYVe7ADv0plbHIWABbHMHxA4j8zYSzwvCioTTrcXL5Jk\nT2krl5KuOsFeNReoZDIn2B0tQdXEtgStkWbgcR2DebbSsd1AJeW8sDnHbrJLnolP\n4SHkatAaKxOS/RVxu3gJVMLC\n-----END PRIVATE KEY-----\n",
+  "client_email": "angga-729@hacktiv8-image-recog.iam.gserviceaccount.com",
+  "client_id": "116111452236335147422",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/angga-729%40hacktiv8-image-recog.iam.gserviceaccount.com"
+}
