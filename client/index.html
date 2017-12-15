@@ -15,11 +15,19 @@
       Image URL:
       <input type="text" name="imageURL" id = "imageURL">
       <input type="submit" value="Submit" onclick=axiosPost()>
+
     </div>
     <div id="brand">
               
     </div>
+    
+    <div id = 'dataItems'>
+
+
+
+    </div>
   
+
     <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
       </fb:login-button>
 
@@ -135,9 +143,30 @@
                     }
                 )
                 .then(resp=>{
-                    console.log('=======================',resp.data);
-                    $('#brand').append(resp.data.responses[0].logoAnnotations[0].description)
-                    // axios.put('//urlBrandHere<---',{data:resp.data.responses[0].logoAnnotations[0].description})
+
+                    // console.log('ini di client :',resp.data);
+                    let result = resp.data.responses[0].logoAnnotations[0].description
+                    // console.log(result)
+                    $('#brand').append(result)
+                    axios.post('http://localhost:3000/search',{data:result})
+                    .then(dataItem => {
+                      console.log('ini dataItems ===>',dataItem)
+                      // getData()
+                      dataItem.data.data.forEach((result) => {
+                        $('div[id=dataItems]').append(`
+                        <ul> 
+                           <li>${result.name}</li>
+                           <li>${result.price}</li> 
+                           <li>${result.category}</li>      
+                       </ul>
+                             `)        
+                           })
+                    })
+                    .catch(err => {
+                      console.log(err)
+                    })
+                
+
                     
                 })
                 .catch(err=>{

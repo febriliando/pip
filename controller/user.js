@@ -82,31 +82,36 @@ class UserController{
             })
         })
     }
-    
+
     static search(req,res){
-        axios.get('http://api.walmartlabs.com/v1/search?query=ipod&format=json&apiKey=63hzn8trymendbtajfa9dx98')
+        console.log('ini di server  =====> ',req.body)
+        axios.get(`http://api.walmartlabs.com/v1/search?query=${req.body.data}&format=json&apiKey=63hzn8trymendbtajfa9dx98`)
         .then(function (response) {
             let array = [];
-            response.data.items.forEach(r => {
+            response.data.items.map(r => {
                 array.push({
                     name : r.name,
-                    price : r.salePrice,
+                    price : r.salePrice * 13000,
                     category : r.categoryPath
                 })
             })
-            // r.name, r.salePrice, r.categoryPath
-
-
-
-          res.status(200).send({
-              msg: "succes",
-              data : array
-          })
+            console.log('ini di server',array)
+            
+            res.status(200).send({
+                msg : "succes",
+                data: array
+            })
         })
         .catch(function (error) {
-          console.log(error);
+            res.status(500).send({
+                msg: error
+            })
         });
+    
     }
+
+    
+
 }
     
 module.exports = UserController
