@@ -2,6 +2,65 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <style>
+      body,h1,h5 {font-family: "Raleway", sans-serif}
+      body, html {height: 100%}
+      .bgimg {
+          background-image: url('https://i1.wp.com/www.slashfilm.com/wp/wp-content/images/Lego-Simpson-Kwik-E-Mart-2.jpg');
+          min-height: 100%;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: 80%;
+          z-index: 0;
+      }
+      
+      /*table*/
+      
+      table {
+          border-collapse: collapse;
+          width: 100%;
+      }
+
+      th, td {
+          text-align: left;
+          padding: 8px;
+      }
+
+      tr:nth-child(even){background-color: #f2f2f2}
+      /*search*/
+      input[type=text] {
+      width: 250px;
+      -webkit-transition: width 0.4s ease-in-out;
+      transition: width 0.4s ease-in-out;
+      }
+      input[type=text]:focus {
+          width: 50%;
+      }
+      
+      
+      
+      /*search*/
+      
+      img {
+        z-index: 1;
+      }
+      
+      /*footer*/
+      
+      .footer {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 1rem;
+        background-color: #efefef;
+        text-align: center;
+      }
+      
+    </style>
     <title>PIP</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script
@@ -11,43 +70,63 @@
     </script>
   </head>
   <body>
-    <div>
+    <div class="bgimg w3-display-container w3-text-white">
+      <br>
+      <div align="center">
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+      </fb:login-button>
+    </div>
+    <br>
+    <div align='center' id = 'searchbar'>
       Image URL:
-      <input type="text" name="imageURL" id = "imageURL">
+      <input type="text" name="imageURL" id = "imageURL" placeholder="Search..">
+      <!-- <input type="text" name="imageURL" id = "imageURL"> -->
       <input type="submit" value="Submit" onclick=axiosPost()>
 
     </div>
-    <div id="brand">
-              
-    </div>
     
-    <div id = 'dataItems'>
-
-
-
-    </div>
-  
-
-    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-      </fb:login-button>
+    
+    <br>
 
       <div id="status">
     </div>
-        
+  </div>
+  <div id="brand" align='center' style='margin:auto;'>
+    
+  </div>
+  <div id = 'gambar' align='center'>
+    
+    <div align='center' class="fb-share-button" data-href="https://www.walmart.com/" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>
+  </div>
+  <br>
+  <div align='center' style='margin:auto;width:90%' >
+    <table id = 'dataItems' border='1px'>
+      
+    </table>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="footer">Ini ceritanya footer yang kami buat <strong>Terserahmulah!</strong>.</div>
   </body>
   <script type="text/javascript">
         
     // This is called with the results from from FB.getLoginStatus().
+    
+    let hideShare = ()=>{
+      $('#searchbar').hide()
+    }
+    
     function statusChangeCallback(response) {
       console.log('statusChangeCallback');
       console.log(response);
-      // The response object is returned with a status field that lets the
-      // app know the current login status of the person.
-      // Full docs on the response object can be found in the documentation
-      // for FB.getLoginStatus().
+
       if (response.status === 'connected') {
         // Logged into your app and Facebook.
         testAPI();
+        $('#searchbar').show()
       } else {
         // The person is not logged into your app or we are unable to tell.
         document.getElementById('status').innerHTML = 'Please log ' +
@@ -65,6 +144,7 @@
     }
 
     window.fbAsyncInit = function() {
+    hideShare()
     FB.init({
       appId      : '133162780689172',
       cookie     : true,  // enable cookies to allow the server to access
@@ -72,19 +152,19 @@
       xfbml      : true,  // parse social plugins on this page
       version    : 'v2.11' // use graph api version 2.8
     });
+  
+    // share Button
+    
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=133162780689172';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 
-    // Now that we've initialized the JavaScript SDK, we call
-    // FB.getLoginStatus().  This function gets the state of the
-    // person visiting this page and can return one of three states to
-    // the callback you provide.  They can be:
-    //
-    // 1. Logged into your app ('connected')
-    // 2. Logged into Facebook, but not your app ('not_authorized')
-    // 3. Not logged into Facebook and can't tell if they are logged into
-    //    your app or not.
-    //
-    // These three cases are handled in the callback function.
-
+    // share button
+  
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
     });
@@ -118,10 +198,12 @@
       });
     }
         
-        
+        let tampung = ''
     function axiosPost(){
         let link = $('#imageURL').val()
         console.log('ini link ',link);
+        show(link)
+        console.log('ini gambar',show)
         axios.post('https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDJhP5ZpSEKUWLRqoYJl1rPHxbn6t-Ziso',
                     {
                       "requests":[
@@ -146,34 +228,60 @@
 
                     // console.log('ini di client :',resp.data);
                     let result = resp.data.responses[0].logoAnnotations[0].description
+                    tampung+= result
+                    
                     // console.log(result)
-                    $('#brand').append(result)
+                    $('#brand').append(`<h3>${result}</h3>`)
+                    
                     axios.post('http://localhost:3000/search',{data:result})
                     .then(dataItem => {
+                      
                       console.log('ini dataItems ===>',dataItem)
                       // getData()
+                      let temporary = `<tr>
+                        <th>
+                          Nama item:
+                        </th>
+                        <th>
+                          Harga
+                        </th>
+                        <th>
+                          Category
+                        </th>
+                      </tr>`
                       dataItem.data.data.forEach((result) => {
-                        $('div[id=dataItems]').append(`
-                        <ul> 
-                           <li>${result.name}</li>
-                           <li>${result.price}</li> 
-                           <li>${result.category}</li>      
-                       </ul>
-                             `)        
-                           })
+                        temporary += `
+                          <tr>
+                             <td>${result.name}</td>
+                             <td>${result.price}</td>
+                             <td>${result.category}</td>
+                         </tr>
+                         `})
+                      $('#dataItems').html(temporary)
                     })
                     .catch(err => {
                       console.log(err)
                     })
-                
 
-                    
                 })
                 .catch(err=>{
                     console.log(err);
                 })
         
     }
-        
+    
+    function show(result){
+      $("#imgsrc").remove()
+      $("#gambar").append(`<img src="${result}" id="imgsrc" style="width:50%;height:50%;">`)
+      showShare()
+      }
+          
+    function showShare(){
+      $(".fb-share-button").show()
+    }
+    
+    // ()=>{
+    //   $(".fb-share-button").hide()
+    // }
   </script>
 </html>

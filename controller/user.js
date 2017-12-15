@@ -91,7 +91,7 @@ class UserController{
             response.data.items.map(r => {
                 array.push({
                     name : r.name,
-                    price : r.salePrice * 13000,
+                    price : 'Rp' + ' '+ (r.salePrice * 13000).toFixed(2),
                     category : r.categoryPath
                 })
             })
