@@ -15,7 +15,7 @@
       Image URL:
       <input type="text" name="imageURL" id = "imageURL">
       <input type="submit" value="Submit" onclick=axiosPost()>
-      
+
     </div>
     <div id="brand">
               
@@ -26,6 +26,7 @@
 
 
     </div>
+  
 
     <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
       </fb:login-button>
@@ -142,6 +143,7 @@
                     }
                 )
                 .then(resp=>{
+
                     // console.log('ini di client :',resp.data);
                     let result = resp.data.responses[0].logoAnnotations[0].description
                     // console.log(result)
@@ -163,6 +165,8 @@
                     .catch(err => {
                       console.log(err)
                     })
+                
+
                     
                 })
                 .catch(err=>{
@@ -170,30 +174,6 @@
                 })
         
     }
-//===============================================================================
-
-
-    function getData(){
-      axios.get('http://localhost:3000/search')
-      .then(data => {
-        console.log('ini di client',data)
-        data.forEach((result) => {
-          $('div[id=dataItems]').append(`
-            <ul> 
-              <li>${result.name}</li>     
-          </ul>
-          `)        
-        })
-      })
-      .catch(err => {
-        console.log(err)
-      })
-    }
-
-
-
-
-
         
   </script>
 </html>

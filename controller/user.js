@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const ObjectID = require('mongodb').ObjectID;
 const axios = require('axios')
+
 class UserController{
 
     static findAll(req,res){
@@ -81,7 +82,6 @@ class UserController{
             })
         })
     }
-    
 
     static search(req,res){
         console.log('ini di server  =====> ',req.body)
@@ -111,6 +111,7 @@ class UserController{
     }
 
     
+
 }
     
 module.exports = UserController
